@@ -17,6 +17,6 @@ int main()
         else c += 1;
 
     }
-    cout << "In string there is " << d << " digits, " << b << "  and " << c << " other symbols" << endl;
+    cout << "In string there is " << d << " numbers, " << b << " letters and " << c << " other symbols" << endl;
     return 0;
 }
