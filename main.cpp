@@ -7,11 +7,11 @@ using namespace std;
 int main()
 {
     srand(time(0));      
-    int M, N, P, k = 0;
+    int M, N, k = 0;    
     cout << "Incert size of arrays" << endl;
     cin >> M >> N;
     int* A = new int[M], * B = new int[N]; 
-    P = M;
+    int P = M;    
     for (size_t i = 0; i < M; i++)
     {
         A[i] = rand() % 100;       
@@ -36,14 +36,14 @@ int main()
     {
         for (size_t j = 0; j < N; j++)
         {
-            if (A[i] == B[j]) A[i] = 101; P -= 1;
+            if (A[i] == B[j] && A[i] != 101) A[i] = 101; P -= 1;
         }
     }
     for (size_t i = 0; i < M / 2; i++)
     {
         for (size_t j = 0; j < M; j++)
         {
-            if (A[i] == A[j]) A[i] = 101; P -= 1;
+            if (A[i] == A[j] && A[i] != 101) A[i] = 101; P -= 1;
         }
     }
     int* C = new int[P];
