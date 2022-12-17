@@ -1,61 +1,52 @@
 // Дані два масиви: А[M] і B[N] (M і N вводяться з клавіатури). Необхідно створити третій масив мінімально можливого розміру, у якому потрібно зібрати
 // елементи масиву A, які не включаються до масиву B, без повторень
 #include <iostream>
-#include <ctime>
 using namespace std;
-
+//char* change_word_in_text(char * text, const char * old_word, const char* new_word)
+//{
+//  string result
+//  for (size_t i = 0; i < strlen(text); i++)
+//  {
+//
+//  }
+//}
 int main()
 {
-    srand(time(0));      
-    int M, N, k = 0;    
-    cout << "Incert size of arrays" << endl;
-    cin >> M >> N;
-    int* A = new int[M], * B = new int[N]; 
-    int P = M;    
-    for (size_t i = 0; i < M; i++)
+    int size1 = 5, size2 = 6;
+    int* arr_1 = new int[size1] {1, 2, 1, 1, 3};
+    int* arr_2 = new int[size2] {2, 3, 6, 5, 6, 7};
+    int* res_first = new int[size1];
+    bool trigger = false;
+    int k = 0;
+    for (size_t i = 0; i < size1; i++)
     {
-        A[i] = rand() % 100;       
-    }
-    for (size_t i = 0; i < N; i++)
+        cout << res_first[i] << "\t";
+    }cout << endl;
+    for (size_t i = 0; i < size1; i++)
     {
-        B[i] = rand() % 100;
-    }
-    cout << "First Array:" << endl;
-    for (size_t i = 0; i < M; i++)
-    {
-        cout << A[i] << " ";
-    }
-    cout << endl;
-    cout << "Second Array:" << endl;
-    for (size_t i = 0; i < N; i++)
-    {
-        cout << B[i] << " ";
-    }
-    cout << endl;
-    for (size_t i = 0; i < M; i++)
-    {
-        for (size_t j = 0; j < N; j++)
+        trigger = false;
+        for (size_t j = 0; j < size1; j++)
         {
-            if (A[i] == B[j] && A[i] != 101) A[i] = 101; P -= 1;
+            if (arr_1[i] == res_first[j])
+            {
+                trigger = true;
+            }
+        }
+        if (trigger != true)
+        {
+            res_first[k] = arr_1[i];
+            k++;
         }
     }
-    for (size_t i = 0; i < M / 2; i++)
+    for (size_t i = 0; i < size1; i++)
     {
-        for (size_t j = 0; j < M; j++)
-        {
-            if (A[i] == A[j] && A[i] != 101) A[i] = 101; P -= 1;
-        }
-    }
-    int* C = new int[P];
-    cout << "Generating new array: ";
-    cout << endl;
-    for (size_t i = 0; i < M; i++)
-        if (A[i] != 101)
-        {
-            C[k] = A[i]; k += 1;
-            cout << C[k] << " ";
-        }
-
-    
+        cout << res_first[i] << "\t";
+    }cout << endl;
+    int* A = new int[k];
+    for (size_t i = 0; i < k; i++)
+    {
+        A[i] = res_first[i];
+        cout << A[i] << "\t";
+    }cout << endl;
+    delete[]res_first;
     return 0;
-}
