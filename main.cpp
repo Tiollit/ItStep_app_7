@@ -2,51 +2,46 @@
 // елементи масиву A, які не включаються до масиву B, без повторень
 #include <iostream>
 using namespace std;
-//char* change_word_in_text(char * text, const char * old_word, const char* new_word)
-//{
-//  string result
-//  for (size_t i = 0; i < strlen(text); i++)
-//  {
-//
-//  }
-//}
+
 int main()
 {
-    int size1 = 5, size2 = 6;
-    int* arr_1 = new int[size1] {1, 2, 1, 1, 3};
-    int* arr_2 = new int[size2] {2, 3, 6, 5, 6, 7};
-    int* res_first = new int[size1];
+    int M, N;
+    cout << "Insert the sizes of arrays A and B: " << endl;
+    cin >> M >> N;    
+    int* A = new int[M];
+    int* B = new int[N];
+    int* res_first = new int[M];
     bool trigger = false;
     int k = 0;
-    for (size_t i = 0; i < size1; i++)
+    for (size_t i = 0; i < M; i++)
     {
         cout << res_first[i] << "\t";
     }cout << endl;
-    for (size_t i = 0; i < size1; i++)
+    for (size_t i = 0; i < M; i++)
     {
         trigger = false;
-        for (size_t j = 0; j < size1; j++)
+        for (size_t j = 0; j < M; j++)
         {
-            if (arr_1[i] == res_first[j])
+            if (A[i] == res_first[j])
             {
                 trigger = true;
             }
         }
         if (trigger != true)
         {
-            res_first[k] = arr_1[i];
+            res_first[k] = A[i];
             k++;
         }
     }
-    for (size_t i = 0; i < size1; i++)
+    for (size_t i = 0; i < M; i++)
     {
         cout << res_first[i] << "\t";
     }cout << endl;
-    int* A = new int[k];
+    int* C = new int[k];
     for (size_t i = 0; i < k; i++)
     {
-        A[i] = res_first[i];
-        cout << A[i] << "\t";
+        C[i] = res_first[i];
+        cout << C[i] << "\t";
     }cout << endl;
     delete[]res_first;
     return 0;
