@@ -1,10 +1,12 @@
 // Дані два масиви: А[M] і B[N] (M і N вводяться з клавіатури). Необхідно створити третій масив мінімально можливого розміру, у якому потрібно зібрати
 // елементи масиву A, які не включаються до масиву B, без повторень
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 int main()
 {
+    srand(time(0));
     int M, N;
     cout << "Insert the sizes of arrays A and B: " << endl;
     cin >> M >> N;    
