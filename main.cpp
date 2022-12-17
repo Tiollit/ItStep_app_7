@@ -9,16 +9,27 @@ int main()
     srand(time(0));
     int M, N;
     cout << "Insert the sizes of arrays A and B: " << endl;
-    cin >> M >> N;    
+    cin >> M >> N;
     int* A = new int[M];
     int* B = new int[N];
     int* res_first = new int[M];
     bool trigger = false;
     int k = 0;
+    cout << "Array A: " << endl;
     for (size_t i = 0; i < M; i++)
     {
-        cout << res_first[i] << "\t";
-    }cout << endl;
+        A[i] = rand() % 100;
+        cout << A[i] << " ";
+    }
+    cout << endl;
+    cout << "Array B: " << endl;
+    for (size_t i = 0; i < N; i++)
+    {
+        B[i] = rand() % 100;
+        cout << B[i] << " ";
+    }
+    cout << endl;
+
     for (size_t i = 0; i < M; i++)
     {
         trigger = false;
@@ -34,12 +45,10 @@ int main()
             res_first[k] = A[i];
             k++;
         }
-    }
-    for (size_t i = 0; i < M; i++)
-    {
-        cout << res_first[i] << "\t";
-    }cout << endl;
+    }  
+    
     int* C = new int[k];
+    cout << "New array: " << endl;
     for (size_t i = 0; i < k; i++)
     {
         C[i] = res_first[i];
@@ -47,3 +56,4 @@ int main()
     }cout << endl;
     delete[]res_first;
     return 0;
+}
