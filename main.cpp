@@ -1,3 +1,7 @@
+//Дани два масиви: А[M] і B[N] (M і N вводяться з клавіатури). Необхідно створити третій масив 
+//мінімально можливого розміру, у якому потрібно зібрати
+//елементи масивів A і B, які не є загальними для них, без
+//повторень
 #include <iostream>
 #include <ctime>
 using namespace std;
@@ -33,7 +37,7 @@ int main()
         trigger = false;
         for (size_t j = 0; j < M; j++)
         {
-            if (A[i] == res_first[j])
+            if (A[i] != B[j])
             {
                 trigger = true;
             }
