@@ -35,7 +35,7 @@ int main()
         trigger = false;
         for (size_t j = 0; j < M; j++)
         {
-            if (A[i] == res_first[j])
+            if (A[i] == B[j])
             {
                 trigger = true;
             }
@@ -43,7 +43,7 @@ int main()
         if (trigger != true)
         {
             res_first[k] = A[i];
-            k++;
+            k++;            
         }
     }  
     
