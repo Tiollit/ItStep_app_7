@@ -14,7 +14,7 @@ int main()
     cin >> M >> N;
     int* A = new int[M];
     int* B = new int[N];
-    int* res_first = new int[M];
+    int* res_first = new int[M+N];
     bool trigger = false;
     int k = 0;
     cout << "Array A: " << endl;
@@ -37,7 +37,7 @@ int main()
         trigger = false;
         for (size_t j = 0; j < M; j++)
         {
-            if (A[i] != B[j])
+            if (A[i] == B[j])
             {
                 trigger = true;
             }
@@ -45,6 +45,23 @@ int main()
         if (trigger != true)
         {
             res_first[k] = A[i];
+            k++;
+        }
+    }
+
+    for (size_t i = 0; i < N; i++)
+    {
+        trigger = false;
+        for (size_t j = 0; j < N; j++)
+        {
+            if (B[i] == A[j])
+            {
+                trigger = true;
+            }
+        }
+        if (trigger != true)
+        {
+            res_first[k] = B[i];
             k++;
         }
     }
